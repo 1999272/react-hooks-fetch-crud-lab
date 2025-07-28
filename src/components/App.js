@@ -3,7 +3,7 @@ import AdminNavBar from "./AdminNavBar";
 import QuestionForm from "./QuestionForm";
 import QuestionList from "./QuestionList";
 
-const API_URL = "http://localhost:4000/questions";
+const API_URL = "http://localhost:3000/questions";
 
 function App() {
   const [page, setPage] = useState("List");
