@@ -36,20 +36,32 @@ function App() {
     });
   }
 
-  // PATCH - Update correctIndex of a question
-  function handleUpdateQuestion(id, correctIndex) {
-    fetch(`${API_URL}/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ correctIndex }),
-    })
-      .then((res) => res.json())
-      .then((updatedQuestion) => {
-        setQuestions((prev) =>
-          prev.map((q) => (q.id === id ? updatedQuestion : q))
-        );
-      });
-  }
+ // PATCH - Update correctIndex of a question
+function handleUpdateQuestion(id, correctIndex) {
+  
+  setQuestions((prev) =>
+    prev.map((q) =>
+      q.id === id
+        ? { ...q, correctIndex }    
+        : q
+    )
+  );
+
+  
+  fetch(`${API_URL}/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ correctIndex }),
+  })
+    .then((res) => res.json())
+    
+    .then((updatedQuestion) => {
+      setQuestions((prev) =>
+        prev.map((q) => (q.id === id ? updatedQuestion : q))
+      );
+    });
+}
+
 
   return (
     <main>
