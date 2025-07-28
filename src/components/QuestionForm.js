@@ -21,7 +21,7 @@ function QuestionForm({ onAddQuestion }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    // ✅ Format data to match API shape
+    //  Format data to match API shape
     const newQuestion = {
       prompt: formData.prompt,
       answers: [
@@ -33,10 +33,10 @@ function QuestionForm({ onAddQuestion }) {
       correctIndex: formData.correctIndex,
     };
 
-    // ✅ Send to parent via prop
+    //  Send to parent via prop
     onAddQuestion(newQuestion);
 
-    // ✅ Reset form
+    //  Reset form
     setFormData({
       prompt: "",
       answer1: "",
